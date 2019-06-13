@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Tú ăn cứt</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-104753562-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments)};
+      gtag('js', new Date());
+
+      gtag('config', 'UA-104753562-2');
+    </script>
+
+    <style>
+      body {
+        background-color: #f9f9f9;
+      }
+
+      #result-card {
+        height: 200px;
+        font-size: 24px;
+
+      }
+
+      .x-large-text {
+        font-size: 32px;
+        transition-property: font-size;
+        transition-duration: 0.3s;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div id="app">
+        <nav class="blue lighten-2">
+          <div class="nav-wrapper">
+            <a href="#" class="brand-logo center">tính toán như lồn</a>
+            <ul id="slide-out" class="side-nav">
+              <li><a href="#"><i class="material-icons">opacity</i>tính toán như lồn</a></li>
+              <!-- <li><a href="cell-number-calculator.html"><i class="material-icons">casino</i>Cell Number Calculator</a></li> -->
+            </ul>
+            <a href="#" data-activates="slide-out" class="left button-collapse show-on-large"><i class="material-icons">menu</i></a>
+          </div>
+        </nav>
+        <div class="row container">
+          <div class="card col m6 s12">
+            <div class="card-content">
+              <div class="row">
+                <div class="input-field col m12">
+                  <input class="validate " type="number" id="basic-hit" v-model="basicHit" @change="caculate()">
+                  <label for="basic-hit">Chính xác base (%)</label>
+                </div>
+                <div class="input-field col m12">
+                  <label for="additional-hit">chính xác (%)</label>
+                  <input class="validate" type="number" id="additional-hit" v-model="additionalHit" @change="caculate()">
+                </div>
+                <div class="input-field col m12">
+                  <label for="hit-times">số lượt công kích</label>
+                  <input class="validate" type="number" id="hit-times" v-model="hitTimes" @change="caculate()">
+                </div>
+                <div class="input-field col m12">
+                  <label for="additional-defend">kháng (%)</label>
+                  <input class="validate" type="number" id="additional-defend" v-model="additionalDefend" @change="caculate()">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-panel col m6 s12" id="result-card">
+            <table class="responsive-table">
+              <tbody>
+                <tr>
+                  <td>Tỉ lệ khống chế trên mỗi hit(%)</td>
+                  <td>Tỉ lệ có thể khống chế được mục tiêu (%)</td>
+                </tr>
+                <tr>
+                  <td class="" id="hit-p">{{ hitP }}</td>
+                  <td class="" id="at-least-hit-p">{{atLeastHitP}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.js"></script>
+  <script src="js/omyoji.js"></script>
+</html>
